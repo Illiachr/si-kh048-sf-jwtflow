@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>EV-ExtractToken</Name>
+    </Step>
+    <Step>
+        <Condition>private.jwt.access_token == null</Condition>
+        <Name>RF-401NoAccessToken</Name>
+    </Step>
+    <Step>
+        <Name>KVM-GetPublickKey</Name>
+    </Step>
+    <Step>
+        <Name>JWT-RS256Verify</Name>
+    </Step>
+    <Step>
+        <Name>EV-ExtractEntityId</Name>
+    </Step>
+    <Step>
+        <Condition>(urirequest.id != jwt.JWT-RS256Verify.decoded.claim.sub) and (jwt.JWT-RS256Verify.decoded.claim.role != "admin")</Condition>
+        <Name>RF-403NotPremitted</Name>
+    </Step>
+</SharedFlow>

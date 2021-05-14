@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="SF-JWTFlow">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <Description>JWTFlow SharedFlow</Description>
+    <DisplayName>SF-JWTFlow</DisplayName>
+    <Policies>
+        <Policy>EV-ExtractToken</Policy>
+        <Policy>RF-401NoAccessToken</Policy>
+        <Policy>JWT-DecodeAccessToken</Policy>
+        <Policy>EV-ExtractEntityId</Policy>
+        <Policy>RF-403NotPremitted</Policy>
+        <Policy>AM-AssignProxyURL</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <validate>false</validate>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>
